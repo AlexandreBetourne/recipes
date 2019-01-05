@@ -3,15 +3,51 @@ var app = new Vue({
 	data: {
 		items: null,
 		loading: true,
-		errored: false
+		errored: false,
+		popin: false,
+		alertMessage: false
+	},
+	methods: {
+		removeElement: function(index) {
+			axios
+				.delete('api/public/recipes/' + index)
+				.then(response => {
+					this.items = response.data
+					console.log(response.data);
+				})
+				.catch(error => {
+					console.log(error)
+					this.errored = true
+				})
+				.finally(() => location.reload())
+		},
+		addElement: function() {
+			title_value = document.getElementById('title').value;
+			steps_value = document.getElementById('steps').value;
+
+			if (title_value && steps_value) {
+				axios.post('api/public/recipes', {
+						title: title_value,
+						steps: steps_value
+					})
+					.then(function(response) {
+						console.log(response);
+					})
+					.catch(function(error) {
+						console.log(error);
+					})
+					.finally(() => location.reload());
+			} else {
+				this.alertMessage = true
+			}
+
+		}
 	},
 	mounted() {
-		console.log(window.location.pathname);
 		axios
 			.get('api/public/recipes')
 			.then(response => {
 				this.items = response.data
-				console.log(response.data);
 			})
 			.catch(error => {
 				console.log(error)

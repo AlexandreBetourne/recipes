@@ -1,0 +1,67 @@
+body {
+  background-color: #4b3832;
+  min-height: 100vh;
+}
+
+.addButton {
+  text-align: center;
+  font-size: 30px;
+}
+
+.message.is-info .message-header {
+  background-color: #be9b7b;
+  color: #4b3832;
+}
+
+#items_container {
+  margin-bottom: 20px;
+}
+
+.pop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #4b3832;
+  top: 0;
+  left: 0;
+}
+
+.pop_container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #be9b7b;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.pop_container h2 {
+  text-align: center;
+}
+
+.pop_container form {
+  width: 500px;
+}
+
+.pop_container textarea, .pop_container input {
+  width: 100%;
+  resize: none;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.pop_container textarea:focus, .pop_container input:focus {
+  outline: none;
+}
+
+.pop_container button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+}
