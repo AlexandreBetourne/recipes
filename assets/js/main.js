@@ -5,7 +5,11 @@ var app = new Vue({
 		loading: true,
 		errored: false,
 		popin: false,
-		alertMessage: false
+		alertMessage: false,
+		title_value: "",
+		steps_value: "",
+		index_value: "",
+		modificated_popin: false
 	},
 	methods: {
 		removeElement: function(index) {
@@ -13,7 +17,6 @@ var app = new Vue({
 				.delete('api/public/recipes/' + index)
 				.then(response => {
 					this.items = response.data
-					console.log(response.data);
 				})
 				.catch(error => {
 					console.log(error)
@@ -41,6 +44,40 @@ var app = new Vue({
 				this.alertMessage = true
 			}
 
+		},
+		closepopin: function(title, steps) {
+			this.popin = false;
+			this.modificated_popin = false;
+
+			this.title_value = "";
+			this.steps_value = "";
+			this.index_value = "";
+		},
+		openModificationPopin: function(index, title, steps) {
+			this.popin = true;
+			this.modificated_popin = true;
+
+			this.title_value = title;
+			this.steps_value = steps;
+			this.index_value = index;
+		},
+		editElement: function() {
+			title_value = document.getElementById('title').value;
+			steps_value = document.getElementById('steps').value;
+			axios
+				.put('api/public/recipes/' + this.index_value, {
+					title: title_value,
+					steps: steps_value
+				})
+				.then(response => {
+					this.items = response.data
+					console.log(response.data);
+				})
+				.catch(error => {
+					console.log(error)
+					this.errored = true
+				})
+				.finally(() => location.reload())
 		}
 	},
 	mounted() {
