@@ -27,21 +27,29 @@
         </section>
 
         <section v-else class="section">
+
           <div v-if="loading">Loading...</div>
 
-          <div v-else id="items_container" class="">
-            <div v-for="item in items" class="message is-info">
-              <div class="message-header bg-gradient">
-                <h2 class="is-size-3 pacifico has-text-white">{{item.title}}</h2>
-                <div class="">
-                  <a @click="openModificationPopin(item.id,item.title,item.steps)"><i class="fas fa-edit"></i></a>
-                  <button class="delete" @click="removeElement(item.id)"></button>
+          <div v-else class="">
+            <div id="items_container" v-if="items.length > 0">
+              <div v-for="item in items" class="message is-info">
+                <div class="message-header bg-gradient">
+                  <h2 class="is-size-3 pacifico has-text-white">{{item.title}}</h2>
+                  <div class="">
+                    <a @click="openModificationPopin(item.id,item.title,item.steps)"><i class="fas fa-edit"></i></a>
+                    <button class="delete" @click="removeElement(item.id)"></button>
+                  </div>
+                </div>
+                <div class="message-body">
+                  {{item.steps}}
                 </div>
               </div>
-              <div class="message-body">
-                {{item.steps}}
-              </div>
             </div>
+
+            <div v-else>
+              <h2 class="is-size-4 has-text-danger">Please add a receipt to see it.</h2>
+            </div>
+
           </div>
 
         </section>
