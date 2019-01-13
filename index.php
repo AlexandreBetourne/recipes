@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <header>
+  <header class="bg-gradient">
     <h1 class="pacifico">MyReceipts</h1>
   </header>
 
@@ -31,8 +31,8 @@
 
           <div v-else id="items_container" class="">
             <div v-for="item in items" class="message is-info">
-              <div class="message-header">
-                <h2 class="is-size-3 pacifico">{{item.title}}</h2>
+              <div class="message-header bg-gradient">
+                <h2 class="is-size-3 pacifico has-text-white">{{item.title}}</h2>
                 <div class="">
                   <a @click="openModificationPopin(item.id,item.title,item.steps)"><i class="fas fa-edit"></i></a>
                   <button class="delete" @click="removeElement(item.id)"></button>
@@ -49,9 +49,9 @@
 
       <div class="column">
         <section class="section ">
-          <div class="addReceipt">
+          <div class="addReceipt bg-gradient">
             <form class="" action="index.html" method="post">
-              <label for="" class="is-size-4 pacifico primary">Title</label>
+              <label for="" class="is-size-4 pacifico has-text-white">Title</label>
               <div v-if="title_value">
                 <input type="text" id="title" required :value="title_value">
               </div>
@@ -59,7 +59,7 @@
                 <input type="text" id="title" required>
               </div>
 
-              <label for="" class="is-size-4 pacifico primary">Steps</label>
+              <label for="" class="is-size-4 pacifico has-text-white">Steps</label>
               <div v-if="steps_value">
                 <textarea id="steps" rows="8" required :value="steps_value"></textarea>
               </div>
@@ -70,11 +70,11 @@
               <p v-if="alertMessage" style="color:red; margin: 0 0 20px 0">Please fill all inputs</p>
 
               <div v-if="steps_value">
-                <button type="button" @click="editElement()">MODIF. RECEIPT</button>
+                <button type="button" @click="editElement()">Modif. Receipt</button>
                 <a @click="newReceipt()" class="has-text-centered is-block">New Receipt</a>
               </div>
               <div v-else>
-                <button type="button" @click="addElement()">NEW RECEIPT</button>
+                <button type="button" @click="addElement()">New Receipt</button>
               </div>
 
             </form>

@@ -11,10 +11,13 @@ body {
   color: #930077;
 }
 
+.bg-gradient {
+  background: linear-gradient(0.15turn, #3a0088, #930077);
+}
+
 header {
   padding: 20px 1.5rem;
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(0.25turn, #3a0088, #930077, #e61c5d);
 }
 
 header h1 {
@@ -27,11 +30,6 @@ header h1 {
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
 }
 
-.message.is-info .message-header {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: #3a0088;
-}
-
 #items_container {
   margin-bottom: 20px;
 }
@@ -42,10 +40,6 @@ header h1 {
   border-radius: 10px;
 }
 
-.addReceipt h2 {
-  text-align: center;
-}
-
 .addReceipt textarea, .addReceipt input {
   width: 100%;
   resize: none;
@@ -53,7 +47,7 @@ header h1 {
   border-radius: 10px;
   margin: 10px 0;
   font-size: 20px;
-  border: solid 2px #3a0088;
+  border: none;
 }
 
 .addReceipt textarea:focus, .addReceipt input:focus {
@@ -66,6 +60,7 @@ header h1 {
   border: none;
   border-radius: 10px;
   font-size: 20px;
-  background: #930077;
-  color: white;
+  background: white;
+  color: #3a0088;
+  font-family: 'Pacifico', cursive;
 }
