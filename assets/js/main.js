@@ -45,18 +45,12 @@ var app = new Vue({
 			}
 
 		},
-		closepopin: function(title, steps) {
-			this.popin = false;
-			this.modificated_popin = false;
-
+		newReceipt: function(title, steps) {
 			this.title_value = "";
 			this.steps_value = "";
 			this.index_value = "";
 		},
 		openModificationPopin: function(index, title, steps) {
-			this.popin = true;
-			this.modificated_popin = true;
-
 			this.title_value = title;
 			this.steps_value = steps;
 			this.index_value = index;
